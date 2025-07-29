@@ -411,6 +411,7 @@ function loadLinks() {
 function saveLinks(links) {
   fs.writeFileSync(linksPath, JSON.stringify(links, null, 2));
 }
+const PORT = process.env.PORT || 3006;
 
 http.createServer((req, res) => {
   if (req.method === "GET") {
@@ -464,6 +465,6 @@ http.createServer((req, res) => {
     });
   }
 
-}).listen(3006, () => {
-  console.log("Server running at http://localhost:3006");
+}).listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });
